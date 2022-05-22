@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/base_link.STL" />
+          filename="model://rom2109_description/meshes/bot/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/base_link.STL" />
+          filename="model://rom2109_description/meshes/bot/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -67,7 +67,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/left_wheel.STL" />
+          filename="model://rom2109_description/meshes/bot/left_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -81,7 +81,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/left_wheel.STL" />
+          filename="model://rom2109_description/meshes/bot/left_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -120,7 +120,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/right_wheel.STL" />
+          filename="model://rom2109_description/meshes/bot/right_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -134,7 +134,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/right_wheel.STL" />
+          filename="model://rom2109_description/meshes/bot/right_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -173,7 +173,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/rp_lidar.STL" />
+          filename="model://rom2109_description/meshes/bot/rp_lidar.STL" />
       </geometry>
       <material
         name="">
@@ -187,7 +187,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/rp_lidar.STL" />
+          filename="model://rom2109_description/meshes/bot/rp_lidar.STL" />
       </geometry>
     </collision>
   </link>
@@ -226,7 +226,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/frame_link.STL" />
+          filename="model://rom2109_description/meshes/bot/frame_link.STL" />
       </geometry>
       <material
         name="">
@@ -240,7 +240,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/frame_link.STL" />
+          filename="model://rom2109_description/meshes/bot/frame_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -279,7 +279,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/wifi.STL" />
+          filename="model://rom2109_description/meshes/bot/wifi.STL" />
       </geometry>
       <material
         name="">
@@ -293,7 +293,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rom2109_description/meshes/bot/wifi.STL" />
+          filename="model://rom2109_description/meshes/bot/wifi.STL" />
       </geometry>
     </collision>
   </link>

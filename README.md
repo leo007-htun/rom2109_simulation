@@ -1,3 +1,5 @@
-# rom2109 Autonomous Mobile Robot
+#### rom2109 Autonomous Mobile Robot
 
-ros2 အတွက် simulation packages များ မပြုလုပ်ရသေးပါ။
+###### ROS2 foxy အတွက် simulation package
+
+- spawn မအောင်မြင်သေး
