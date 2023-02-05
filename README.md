@@ -17,4 +17,5 @@ $ sudo apt install -y ros-humble-controller-* <br>
 
 - sensor အားလုံးအဆင်ပြေ။ SLAM မစမ်းရေသး
 
+<img src="images/orange_bot.png" width="619" height="330" />
 - rom2109_tall ကို ကိုပြည့်စုံအောင် design ဆွဲပြီး rom2109_bot ကို ကိုစည်သူရဲထွန်း design ဆွဲပြီး မြန်မာပြည်တွင် တပ်ဆင်သည်။
