@@ -3,6 +3,7 @@
 ###### ROS2 humble အတွက် simulation package
 
 $ sudo apt install -y ros-humble-gazebo-ros* <br>
+$ sudo apt install -y ros-humble-ros2-control* <br>
 $ sudo apt install -y ros-humble-controller-* <br>
 
 <img src="images/bot.png" width="613" height="299" />
@@ -14,6 +15,6 @@ $ sudo apt install -y ros-humble-controller-* <br>
 
 - spawner ကို launch ဖိုင်မှခေါ်ရာတွင် position argument စတိုင်မှာ "-x", "0.0" အား "-x", '0.0' စသဖြင့်အသုံးပြုပါ။
 
-
+- sensor အားလုံးအဆင်ပြေ။ SLAM မစမ်းရေသး
 
 - rom2109_tall ကို ကိုပြည့်စုံအောင် design ဆွဲပြီး rom2109_bot ကို ကိုစည်သူရဲထွန်း design ဆွဲပြီး မြန်မာပြည်တွင် တပ်ဆင်သည်။

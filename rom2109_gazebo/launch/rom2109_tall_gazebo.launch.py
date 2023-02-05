@@ -20,7 +20,7 @@ def generate_launch_description():
         name="robot_state_publisher",
         package="robot_state_publisher",
         executable="robot_state_publisher",
-        parameters=[{"robot_description": urdf}],
+        parameters=[{"robot_description": urdf, 'use_sim_time': True}],
     )
 
     joint_state_node = Node(
@@ -32,7 +32,7 @@ def generate_launch_description():
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
-        arguments=['-d', os.path.join(urdf_pkg, 'rviz2', 'display.rviz')],
+        arguments=['-d', os.path.join(gazebo_pkg, 'rviz2', 'display.rviz')],
         condition=IfCondition(LaunchConfiguration('open_rviz'))
     )
 
@@ -62,21 +62,11 @@ def generate_launch_description():
         output="screen"
     )
 
-    spawn_bot_robot_node = Node(
-        package="gazebo_ros",
-        executable="spawn_entity.py",
-        arguments=["-database", "rom2109_bot", "-entity", "rom2109_bot",
-        "-x", '0.0',
-        "-y", '0.0',
-        "-z", '0.3'],
-        output="screen"
-    )
-
     return LaunchDescription(
         [
-            DeclareLaunchArgument('open_rviz', default_value='true', description='Open RViz.'),
+            DeclareLaunchArgument('open_rviz', default_value='false', description='Open RViz.'),
             robot_state_publisher_node,
-            joint_state_node,
+            #joint_state_node,
             rviz_node,
             gazebo_launch,
             spawn_tall_robot_node,

@@ -160,40 +160,78 @@
         <velocity_decay/>
         <gravity>1</gravity>
         <velocity_decay/>
-        <sensor name='head_hokuyo_sensor' type='ray'>
-          <visualize>1</visualize>
-          <update_rate>40</update_rate>
-          <ray>
-            <scan>
-              <horizontal>
-                <samples>720</samples>
-                <resolution>1</resolution>
-                <min_angle>-1.5708</min_angle>
-                <max_angle>1.5708</max_angle>
-              </horizontal>
-              <vertical>
-                <samples>1</samples>
-                <min_angle>0</min_angle>
-                <max_angle>0</max_angle>
-              </vertical>
-            </scan>
-            <range>
-              <min>0.1</min>
-              <max>30</max>
-              <resolution>0.01</resolution>
-            </range>
-            <noise>
-              <type>gaussian</type>
-              <mean>0</mean>
-              <stddev>0.01</stddev>
-            </noise>
-          </ray>
-          <plugin name='gazebo_ros_head_hokuyo_controller' filename='libgazebo_ros_laser.so'>
-            <topicName>/scan</topicName>
+        <sensor name="hls_lfcd_lds" type="ray">
+                <always_on>true</always_on>
+                <visualize>true</visualize>
+                <pose>-0.064 0 0.242 0 0 0</pose>
+                <update_rate>5</update_rate>
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>360</samples>
+                            <resolution>1.000000</resolution>
+                            <min_angle>0.000000</min_angle>
+                            <max_angle>6.280000</max_angle>
+                        </horizontal>
+                    </scan>
+                    <range>
+                        <min>0.130000</min>
+                        <max>30</max>
+                        <resolution>0.01000</resolution>
+                    </range>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.01</stddev>
+                    </noise>
+                </ray>
+                <plugin name="amazon_robot_laserscan" filename="libgazebo_ros_ray_sensor.so">
+                    <ros>
+                        <!-- <namespace>/tb3</namespace> -->
+                        <remapping>~/out:=scan</remapping>
+                    </ros>
+                    <output_type>sensor_msgs/LaserScan</output_type>
+                    <frame_name>rp_lidar</frame_name>
+                </plugin>
+                <pose frame=''>-0.016132 -3.6e-05 0.20083 0 -0 0</pose>
+        </sensor>
+        <sensor type="camera" name="camera1">
+          <update_rate>30.0</update_rate>
+          <camera name="head">
+          <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <width>800</width>
+            <height>800</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+              <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+          </camera>
+          <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>0.0</updateRate>
+            <cameraName>camera1</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
             <frameName>rp_lidar</frameName>
-            <robotNamespace>/</robotNamespace>
+            <hackBaseline>0.07</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
           </plugin>
-          <pose frame=''>-0.016132 -3.6e-05 0.20083 0 -0 0</pose>
+          <pose frame=''>-0.03 -3.6e-05 0.5 0 -0 0</pose>
         </sensor>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
@@ -331,6 +369,11 @@
       </joint>
       <plugin name='gazebo_ros_control' filename='libgazebo_ros_contol.so'>
         <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name="gazebo_ros_joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+        <update_rate>20</update_rate>
+        <joint_name>left_wheel_joint</joint_name>
+        <joint_name>right_wheel_joint</joint_name>
       </plugin>
       <static>0</static>
       <plugin name='differential_drive_controller' filename='libgazebo_ros_diff_drive.so'>
