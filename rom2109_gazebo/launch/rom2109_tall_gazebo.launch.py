@@ -52,6 +52,26 @@ def generate_launch_description():
         }.items(),
     )
 
+    spawn_tall_robot_node = Node(
+        package="gazebo_ros",
+        executable="spawn_entity.py",
+        arguments=["-database", "rom2109_tall", "-entity", "rom2109_tall",
+        "-x", '0.0',
+        "-y", '0.0',
+        "-z", '0.3'],
+        output="screen"
+    )
+
+    spawn_bot_robot_node = Node(
+        package="gazebo_ros",
+        executable="spawn_entity.py",
+        arguments=["-database", "rom2109_bot", "-entity", "rom2109_bot",
+        "-x", '0.0',
+        "-y", '0.0',
+        "-z", '0.3'],
+        output="screen"
+    )
+
     return LaunchDescription(
         [
             DeclareLaunchArgument('open_rviz', default_value='true', description='Open RViz.'),
@@ -59,5 +79,6 @@ def generate_launch_description():
             joint_state_node,
             rviz_node,
             gazebo_launch,
+            spawn_tall_robot_node,
         ]
     )
