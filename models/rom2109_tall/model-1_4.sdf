@@ -20,7 +20,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/base_link.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/base_link.STL</uri>
             </mesh>
           </geometry>
           <surface>
@@ -42,7 +42,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/plate1.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/plate1.STL</uri>
             </mesh>
           </geometry>
           <surface>
@@ -64,7 +64,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/camera.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/camera.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -86,7 +86,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/lidar.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/lidar.STL</uri>
             </mesh>
           </geometry>
           <surface>
@@ -108,7 +108,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/plate2.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/plate2.STL</uri>
             </mesh>
           </geometry>
           <surface>
@@ -130,7 +130,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/plate3.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/plate3.STL</uri>
             </mesh>
           </geometry>
           <surface>
@@ -152,7 +152,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/base_link.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/base_link.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -167,7 +167,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/plate1.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/plate1.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -182,7 +182,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/camera.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/camera.STL</uri>
             </mesh>
           </geometry>
         </visual>
@@ -191,7 +191,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/lidar.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/lidar.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -206,7 +206,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/plate2.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/plate2.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -221,7 +221,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/plate3.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/plate3.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -333,7 +333,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/left_wheel.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/left_wheel.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -355,7 +355,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/left_wheel.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/left_wheel.STL</uri>
             </mesh>
           </geometry>
         </visual>
@@ -398,7 +398,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/right_wheel.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/right_wheel.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -420,7 +420,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/tall/right_wheel.STL</uri>
+              <uri>model://rom2109_tall/meshes/tall/right_wheel.STL</uri>
             </mesh>
           </geometry>
         </visual>

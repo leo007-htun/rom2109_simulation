@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ -e ~/.gazebo/models ]]
+then
+	echo "models Directory exists."
+else
+	mkdir ~/.gazebo/models
+fi
+cp -r ./models/* ~/.gazebo/models
+echo "models Copy finished!"

@@ -20,7 +20,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/base_link.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/base_link.STL</uri>
             </mesh>
           </geometry>
           <surface>
@@ -42,7 +42,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/frame_link.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/frame_link.STL</uri>
             </mesh>
           </geometry>
           <surface>
@@ -64,7 +64,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/rp_lidar.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/rp_lidar.STL</uri>
             </mesh>
           </geometry>
           <surface>
@@ -86,7 +86,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/wifi.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/wifi.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -108,7 +108,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/base_link.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/base_link.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -123,7 +123,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/frame_link.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/frame_link.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -138,7 +138,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/rp_lidar.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/rp_lidar.STL</uri>
             </mesh>
           </geometry>
           <material>
@@ -153,7 +153,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/wifi.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/wifi.STL</uri>
             </mesh>
           </geometry>
         </visual>
@@ -257,7 +257,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/left_wheel.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/left_wheel.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -279,7 +279,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/left_wheel.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/left_wheel.STL</uri>
             </mesh>
           </geometry>
         </visual>
@@ -322,7 +322,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/right_wheel.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/right_wheel.STL</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -344,7 +344,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>model://rom2109_description/meshes/bot/right_wheel.STL</uri>
+              <uri>model://rom2109_bot/meshes/bot/right_wheel.STL</uri>
             </mesh>
           </geometry>
         </visual>

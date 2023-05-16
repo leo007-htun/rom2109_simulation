@@ -24,7 +24,6 @@ endif()
 install(
   DIRECTORY
     launch
-    models
     rviz2
     worlds
   DESTINATION
