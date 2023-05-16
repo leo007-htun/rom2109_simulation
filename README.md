@@ -1,24 +1,17 @@
-#### rom2109 Autonomous Mobile Robot
+## rom2109 Autonomous Mobile Robot ( Start Project - Sepetmber 2021)
+model install လုပ်ရန် ./install_models
 
-###### ROS2 humble အတွက် simulation package
-
-$ sudo apt install -y ros-humble-gazebo-ros* <br>
-$ sudo apt install -y ros-humble-ros2-control* <br>
-$ sudo apt install -y ros-humble-controller-* <br>
-
-<img src="images/bot.png" width="613" height="299" />
-
-အသုံးပြုနည်း 
+#### Install ပြုလုပ်ခြင်း ( Simulation Robot ) 
 ```
-cd /your/workspace/src/rom2109_simulation
-./install_models
+sudo apt install -y ros-humble-gazebo-ros* 
+sudo apt install -y ros-humble-ros2-control*
+sudo apt install -y ros-humble-controller-*
+cd your/workspace/src
+git clone git@github.com:ROM-robotics/rom2109_simulation.git
+cd your/workspace && colcon build --symlink-install && source install/setup.bash
 ```
-Gazebo ကို ဖွင့် ROM2109 TALL သို့မဟုတ် ROM2109 BOT ကို insert လုပ်ပြီး simulation စလုပ်လို့ရပါပြီ။ 
-
-- sensor အားလုံးအဆင်ပြေ။ SLAM မစမ်းရေသး
-
 <img src="images/orange_bot.png" width="619" height="330" />
-- rom2109_tall ကို ကိုပြည့်စုံအောင် design ဆွဲပြီး rom2109_bot ကို ကိုစည်သူရဲထွန်း design ဆွဲပြီး မြန်မာပြည်တွင် တပ်ဆင်သည်။
+rom2109_tall ကို ကိုပြည့်စုံအောင် design ဆွဲပြီး rom2109_bot ကို ကိုစည်သူရဲထွန်း design ဆွဲပြီး မြန်မာပြည်တွင် တပ်ဆင်သည်။
 
-#### 
-
+#### Simulation  ပြုလုပ်ရန်
+ros2 launch rom2109_gazebo rom2109_sim_gz_control.launch.py use_sim_time:=true
