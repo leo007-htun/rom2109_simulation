@@ -1,4 +1,4 @@
-## rom2109_nav2 
+# rom2109_nav2 
 
 ##### ဒါတွေ install လုပ်ထားပါ။
 ```
@@ -10,7 +10,7 @@ sudo apt install ros-humble-robot-localization
 sudo apt install -y ros-humble-slam-toolbox
 ```
 
-### Mapping
+### 1 Mapping
 slamtoolbox အတွက် yaml ဖိုင်မှာ frame တွေစစ်ဆေးပြီး mapping mode မှာထားပါ။
 အတုယူရေးသားဖို့ အောက်ပါတို့ကို လုပ်ပါ။ <br>
 ###### cp /opt/ros/humble/share/slam_toolbox/config/mapper_params_online_async.yaml your_path/ <br>
@@ -43,7 +43,7 @@ ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=my_map_old.yaml
 ```
 map->odom ကို amcl ကလည်းထုတ်ပေးမှာမို့ jumping ဖြစ်နေနိုင်ပါတယ်။
 
-### Localization
+### 2 Localization
 အခုဆိုရင် amcl localisation ကို သုံးလို့ရပါပြီ။ 
 ```
 ros2 run nav2_util lifecycle_bringup amcl
@@ -54,7 +54,7 @@ RViz --> 2D Pose Estimate
 amcl အဆင်ပြေပေမဲ့ robot သည် rviz တွင် jumping ဖြစ်နေတယ်။
 TO FIX -> duplicate map->odom publisher
 
-### Navigation
+### 3 Navigation
 simulation နဲ့ slam toolbox ကို run ပြီး twist_mux ကို စမ်းကြည့်ပါ။ stamped velocity ကို သုံးမယ်ဆိုရင်တော့ twist_mux သုံးစရာမလိုပါ။ run ချင်ရင်  
 ```
 ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
@@ -70,7 +70,7 @@ ros2 launch rom2109_nav2 sim_localization_init_pose_launch.py
 ros2 launch rom2109_nav2 sim_navigation_launch.py map_subscribe_transient_local:=true
 ```
 
-### Patrol System 
+### 4 Patrol System 
 နောက်တခါ Partol လှည့်ချင်တယ်ဗျာ။ ဒါကြောင့်မို့လို့
 ```
 ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
