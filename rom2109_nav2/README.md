@@ -3,7 +3,7 @@
 #### ဒါတွေ install လုပ်ထားပါ။
 ```
 sudo apt install ros-humble-navigation2
-sudo apt install ros-humble-nav2-brigup
+sudo apt install ros-humble-nav2-bringup
 sudo apt install ros-humble-turtlebot3*
 sudo apt install ros-humble-twist-mux ros-humble-nav2*     
 sudo apt install ros-humble-robot-localization
@@ -12,12 +12,16 @@ sudo apt install -y ros-humble-slam-toolbox
 
 #### Mapping
 slamtoolbox အတွက် yaml ဖိုင်မှာ frame တွေစစ်ဆေးပြီး mapping mode မှာထားပါ။
+အတုယူရေးသားဖို့ အောက်ပါတို့ကို လုပ်ပါ။
+#cp /opt/ros/humble/share/slam_toolbox/config/mapper_params_online_async.yaml your_path/
+#ros2 launch slam_toolbox online_async_launch.py params_file:=/pathto/yaml use_sim_time:=true
+သို့မဟုတ် အောက်က ပြင်ဆင်ပြီးသား launch ဖိုင်ကို run ပါ။
 ```
-# cp /opt/ros/humble/share/slam_toolbox/config/mapper_params_online_async.yaml your_path/
-# ros2 launch slam_toolbox online_async_launch.py params_file:=/pathto/yaml use_sim_time:=true
-ros2 launch rom2109_gazebo delayed_rom2109_sim_ros2_control.launch.py
+ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
 ros2 launch rom2109_nav2 online_async_launch_mapping_launch.py
-# rviz မှာ config ဖြစ်တဲ့ rom2109_gazebo/rviz2/slam.rviz ကို ဖွင့်ပါ။ ပြီးရင် အောက်ပါ node နဲ့ မောင်းပါ။
+```
+#rviz မှာ config ဖြစ်တဲ့ rom2109_gazebo/rviz2/slam.rviz ကို ဖွင့်ပါ။ ပြီးရင် အောက်ပါ node နဲ့ မောင်းပါ။
+```
 ros2 run teleop_twist_keyboard teleop_twist_keyboard /cmd_vel:=/diff_cont/cmd_vel_unstamped
 ```
  ပြီးရင် ပါတ်မောင်းပြီး မြေပုံကို save ပါ။
@@ -53,21 +57,23 @@ TO FIX -> duplicate map->odom publisher
 #### Navigation
 simulation နဲ့ slam toolbox ကို run ပြီး twist_mux ကို စမ်းကြည့်ပါ။ stamped velocity ကို သုံးမယ်ဆိုရင်တော့ twist_mux သုံးစရာမလိုပါ။ run ချင်ရင်  
 ```
-ros2 launch rom2109_gazebo delayed_rom2109_sim_ros2_control.launch.py
+ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
 ros2 launch rom2109_nav2 sim_localization_launch.py
 ros2 launch rom2109_nav2 sim_navigation_launch.py map_subscribe_transient_local:=true
 ```
 RViz မှာ rom2109_gazebo/rviz2/nav2_default_view.rviz ကို ဖွင့်ပါ။
 အဲ့မှာ initial pose ကို rviz ကပေးမနေရအောင် code ထပ်ရေးပြီး run တယ်။ ဘာလိုဆို initial pose ကို publish လုပ်ပေးမှာ localization က map->odom ကို publish လုပ်ပေးမှာမို့လို့။ ဒါကြောင့် init_robot_pose publisher ကိုရေးပြီး sim_localization_init_pose_launch.py ထဲမှာထည့်ထားတယ်။ အဲ့တော့ init_robot_pose ပါ run ချင်ရင် 
 ```
-ros2 launch rom2109_gazebo delayed_rom2109_sim_ros2_control.launch.py
+ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
 ros2 launch rom2109_nav2 sim_localization_init_pose_launch.py
 # ဒါဆို ဒီအဆင့်မှာ map->odom ရပါပြီ။ 2D pose estimate နှိပ်စရာမလိုတော့။
 ros2 launch rom2109_nav2 sim_navigation_launch.py map_subscribe_transient_local:=true
 ```
+
+### Patrol System 
 နောက်တခါ Partol လှည့်ချင်တယ်ဗျာ။ ဒါကြောင့်မို့လို့
 ```
-ros2 launch rom2109_gazebo delayed_rom2109_sim_ros2_control.launch.py
+ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
 ros2 launch rom2109_nav2 sim_localization_init_pose_launch.py
 ros2 launch rom2109_nav2 sim_navigation_launch.py map_subscribe_transient_local:=true
 ros2 launch rom2109_autonomy autonomy.launch.py
