@@ -12,15 +12,15 @@ sudo apt install -y ros-humble-slam-toolbox
 
 #### Mapping
 slamtoolbox အတွက် yaml ဖိုင်မှာ frame တွေစစ်ဆေးပြီး mapping mode မှာထားပါ။
-အတုယူရေးသားဖို့ အောက်ပါတို့ကို လုပ်ပါ။
-#cp /opt/ros/humble/share/slam_toolbox/config/mapper_params_online_async.yaml your_path/
+အတုယူရေးသားဖို့ အောက်ပါတို့ကို လုပ်ပါ။ <br>
+#cp /opt/ros/humble/share/slam_toolbox/config/mapper_params_online_async.yaml your_path/ <br>
 #ros2 launch slam_toolbox online_async_launch.py params_file:=/pathto/yaml use_sim_time:=true
 သို့မဟုတ် အောက်က ပြင်ဆင်ပြီးသား launch ဖိုင်ကို run ပါ။
 ```
 ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
 ros2 launch rom2109_nav2 online_async_launch_mapping_launch.py
 ```
-#rviz မှာ config ဖြစ်တဲ့ rom2109_gazebo/rviz2/slam.rviz ကို ဖွင့်ပါ။ ပြီးရင် အောက်ပါ node နဲ့ မောင်းပါ။
+###### rviz မှာ config ဖြစ်တဲ့ rom2109_gazebo/rviz2/slam.rviz ကို ဖွင့်ပါ။ ပြီးရင် အောက်ပါ node နဲ့ မောင်းပါ။
 ```
 ros2 run teleop_twist_keyboard teleop_twist_keyboard /cmd_vel:=/diff_cont/cmd_vel_unstamped
 ```
@@ -109,4 +109,4 @@ ros2 launch rom2109_gazebo rom2109_sim_diff_controller_joint_broadcaster.launch.
 ##### A: ros2 topic echo /amcl_pose
 
 
-<a href="https://github.com/ROM-robotics/rom2109">မူလစာမျက်နှာ </a>
+<a href="https://github.com/ROM-robotics/rom2109_simulation">မူလစာမျက်နှာ </a>
