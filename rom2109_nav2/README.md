@@ -18,6 +18,7 @@ slamtoolbox အတွက် yaml ဖိုင်မှာ frame တွေစစ�
 သို့မဟုတ် အောက်က ပြင်ဆင်ပြီးသား launch ဖိုင်ကို run ပါ။
 ```
 ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
+ros2 launch rom2109_gazebo controller_spawner.launch.py
 ros2 launch rom2109_nav2 online_async_launch_mapping_launch.py
 ```
 ##### rviz မှာ config ဖြစ်တဲ့ rom2109_gazebo/rviz2/slam.rviz ကို ဖွင့်ပါ။ ပြီးရင် အောက်ပါ node နဲ့ မောင်းပါ။
