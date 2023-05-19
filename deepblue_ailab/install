@@ -1,0 +1,9 @@
+!#/bin/bash
+git clone https://github.com/ROM-robotics/tmux_install
+chmod +x ./tumx_install/start.sh
+cd ./tmux_install
+./start.sh
+#cp .tmuxinator.yml ../rom.yml
+cd ..
+rm -rf tmux_install
+
