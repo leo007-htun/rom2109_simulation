@@ -1,0 +1,4 @@
+#!/bin/bash
+rm ~/.tmux*
+# apt remove tmux tmuxinator
+sudo rm /usr/bin/the_hacker_way

@@ -59,7 +59,7 @@ def generate_launch_description():
         arguments=['-file', urdf_file, '-entity', 'rom2109',
                    "-x", '0.0',
                    "-y", '0.0',
-                   "-z", '0.1'],
+                   "-z", '0.3'],
         output='screen'
     )
 
@@ -79,14 +79,30 @@ def generate_launch_description():
     twist_mux_node = Node(
         package="twist_mux",
         executable="twist_mux",
-        parameters=[twist_mux_params, {'use_sim_time': True}],
+        parameters=[twist_mux_params, {'use_sim_time': 'true'}],
         remappings=[('/cmd_vel_out', '/diff_cont/cmd_vel_unstamped')]
+    )
+
+    joy_params = os.path.join(get_package_share_directory('rom_robotics_joy'), 'config', 'joystick.yaml')
+
+    joy_node = Node(
+        package='joy',
+        executable='joy_node',
+        parameters=[joy_params,{'use_sim_time': 'true'}],
+    )
+    teleop_node = Node(
+        package="teleop_twist_joy",
+        executable='teleop_node',
+        name='teleop_node',
+        parameters=[joy_params,{'use_sim_time': 'true'}],
+        remappings=[('/cmd_vel', '/diff_cont/cmd_vel_unstamped')]
     )
 
     return LaunchDescription(
         [
-            DeclareLaunchArgument(
-                'open_rviz', default_value='true', description='Open RViz.'),
+            DeclareLaunchArgument('open_rviz', default_value='true', description='Open RViz.'),
+            DeclareLaunchArgument('use_joystick', default_value='false', description='JoyStick.'),
+            DeclareLaunchArgument('use_sim_time', default_value='true', description='Sim Time'),
             bot,
             gazebo_launch,
             rviz_node,

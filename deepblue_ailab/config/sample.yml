@@ -6,36 +6,36 @@ root: ~/
 pre_window: export PS1=" \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;45m\]>>>\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 startup_window: Gazebo
-startup_pane: 0
+# startup_pane: 0
 
 windows:
   - Gazebo: 
       root: ~/ros/ros2_ws
       panes:
-        - clear; source ~/.bashrcROS; echo "Display Gazebo"
+        - clear; source ~/.bashrcROS; ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
   - Driver: 
       root: ~/ros/ros2_ws
       layout: 0a91,122x31,0,0{61x31,0,0,0,60x31,62,0,1}
       panes:
-        - clear; source ~/.bashrcROS; echo "controller spawner for gazebo ros2 controller manager"
-        - clear; source ~/.bashrcROS; sleep 25; echo "robot pose initializer for Localization node"
+        - clear; source ~/.bashrcROS; sleep 20; ros2 launch rom2109_gazebo controller_spawner.launch.py
+        - clear; source ~/.bashrcROS; echo "Hello"
   - Localization: 
       root: ~/ros/ros2_ws
       panes:
-        - clear; source ~/.bashrcROS; echo "Localization launch"
+        - clear; source ~/.bashrcROS; ros2 launch rom2109_nav2 sim_localization_init_pose_launch.py
   - Navigation: 
       root: ~/ros/ros2_ws
       panes:
-        - clear; source ~/.bashrcROS; echo "Navigation launch"
+        - clear; source ~/.bashrcROS; ros2 launch rom2109_nav2 sim_navigation_launch.py map_subscribe_transient_local:=true
   - BehaviorTree: 
       root: ~/ros/ros2_ws
       panes:
-        - clear; source ~/.bashrcROS; sleep 35; echo "Behavior Tree Launch"
+        - clear; source ~/.bashrcROS; sleep 35; 
   - About:
       layout: 0a91,122x31,0,0{61x31,0,0,0,60x31,62,0,1}
       root: ~/ros/ros2_ws
       panes:
         - clear; source ~/.bashrcROS; cowsay Wellcome Idiots! ; echo "                              OPEN SOURCE ROBOTICS FOR MYANMAR"
         - clear; source ~/.bashrcROS; neofetch
-        - clear; source ~/.bashrcROS; ranger ranger ros2/ros2_ws/src/rom2109_simulation/
+        - clear; source ~/.bashrcROS; ranger ~/ros2/ros2_ws/src/rom2109_simulation/
   

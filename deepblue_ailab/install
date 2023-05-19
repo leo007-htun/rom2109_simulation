@@ -1,9 +1,14 @@
-!#/bin/bash
+#!/bin/bash
 git clone https://github.com/ROM-robotics/tmux_install
-chmod +x ./tumx_install/start.sh
 cd ./tmux_install
+chmod +x start.sh
 ./start.sh
 #cp .tmuxinator.yml ../rom.yml
 cd ..
 rm -rf tmux_install
+echo "!#/bin/bash" > the_hacker_way
+echo "cd ~" >> the_hacker_way
+echo "tmuxinator" >> the_hacker_way
+chmod +x the_hacker_way
+sudo mv the_hacker_way /usr/bin/
 
