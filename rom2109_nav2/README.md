@@ -32,8 +32,9 @@ map save ဖို့က format နှစ်မျိုးရှိတယ်။
 
 map ပြန်ထည့်ဖို့ yaml, map_server နည်း နှစ်ခုရှိပြီး yaml မှာဆိုရင် mapping ကို localization ပြောင်း , map path ထည့်ပေးပါ။ 
 
+
 #### Using Map
-တကယ်တော့ localization node ဆိုပေမဲ့ amcl မပါဝင်။ slamtoolbox က localization လုပ်ပေးတာဖြစ်တယ်။ တနည်းအားဖြင့် map->odom ထုတ်ပေးနေတာပေါ့။ yaml localization mode မှာထားပြီး အောက်ပါ launch ကို run ပါ။
+တကယ်တော့ localization node ဆိုပေမဲ့ amcl မပါဝင်။ slamtoolbox က localization လုပ်ပေးတာဖြစ်တယ်။ တနည်းအားဖြင့် map->odom ထုတ်ပေးနေတာပေါ့။ yaml localization mode မှာထားပြီး config/mapper_params_online_async_localization.yaml ရဲ့ map_file_name မှာ serial map ကိုထည့်ပေးပါ။ ပြီးမှအောက်ပါ launch ကို run ပါ။
 ```
 ros2 launch rom2109_nav2 online_async_launch_localization_launch.py
 ```
@@ -45,6 +46,7 @@ ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=my_map_old.yaml
 map->odom ကို amcl ကလည်းထုတ်ပေးမှာမို့ jumping ဖြစ်နေနိုင်ပါတယ်။
 
 ### 2 Localization
+sim_localization_launch.py ထဲမှာ declare_map_yaml_cmd မှာ save ထားတဲ့ map ထည့်ပြီးမှ localization node ကို run ပါ။
 အခုဆိုရင် amcl localisation ကို သုံးလို့ရပါပြီ။ 
 ```
 ros2 run nav2_util lifecycle_bringup amcl
@@ -59,6 +61,7 @@ TO FIX -> duplicate map->odom publisher
 simulation နဲ့ slam toolbox ကို run ပြီး twist_mux ကို စမ်းကြည့်ပါ။ stamped velocity ကို သုံးမယ်ဆိုရင်တော့ twist_mux သုံးစရာမလိုပါ။ run ချင်ရင်  
 ```
 ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
+ros2 launch rom2109_gazebo controller_spawner.launch.py
 ros2 launch rom2109_nav2 sim_localization_launch.py
 ros2 launch rom2109_nav2 sim_navigation_launch.py map_subscribe_transient_local:=true
 ```
@@ -66,6 +69,7 @@ RViz မှာ rom2109_gazebo/rviz2/nav2_default_view.rviz ကို ဖွင�
 အဲ့မှာ initial pose ကို rviz ကပေးမနေရအောင် code ထပ်ရေးပြီး run တယ်။ ဘာလိုဆို initial pose ကို publish လုပ်ပေးမှာ localization က map->odom ကို publish လုပ်ပေးမှာမို့လို့။ ဒါကြောင့် init_robot_pose publisher ကိုရေးပြီး sim_localization_init_pose_launch.py ထဲမှာထည့်ထားတယ်။ အဲ့တော့ init_robot_pose ပါ run ချင်ရင် 
 ```
 ros2 launch rom2109_gazebo rom2109_sim_ros2_control.launch.py
+ros2 launch rom2109_gazebo controller_spawner.launch.py
 ros2 launch rom2109_nav2 sim_localization_init_pose_launch.py
 # ဒါဆို ဒီအဆင့်မှာ map->odom ရပါပြီ။ 2D pose estimate နှိပ်စရာမလိုတော့။
 ros2 launch rom2109_nav2 sim_navigation_launch.py map_subscribe_transient_local:=true

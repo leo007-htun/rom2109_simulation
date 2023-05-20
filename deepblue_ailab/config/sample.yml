@@ -18,7 +18,7 @@ windows:
       layout: 0a91,122x31,0,0{61x31,0,0,0,60x31,62,0,1}
       panes:
         - clear; source ~/.bashrcROS; sleep 20; ros2 launch rom2109_gazebo controller_spawner.launch.py
-        - clear; source ~/.bashrcROS; echo "Hello"
+        - clear; source ~/.bashrcROS; sleep 35; rm frame*; ros2 run tf2_tools view_frames; rm *.gv; evince frame*
   - Localization: 
       root: ~/ros/ros2_ws
       panes:

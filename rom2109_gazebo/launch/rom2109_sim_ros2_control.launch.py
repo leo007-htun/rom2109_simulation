@@ -55,8 +55,8 @@ def generate_launch_description():
     spawn_robot_node = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        # arguments=['-database', 'rom2109_tall_ros', '-entity', 'rom2109',
-        arguments=['-file', urdf_file, '-entity', 'rom2109',
+        # arguments=['-database', 'rom2109_tall_ros', '-entity', 'rom2109_tall_ros',
+        arguments=['-file', urdf_file, '-entity', 'rom2109_tall_ros',
                    "-x", '0.0',
                    "-y", '0.0',
                    "-z", '0.3'],
@@ -109,6 +109,6 @@ def generate_launch_description():
             spawn_robot_node,
             #diff_drive_spawner,
             #joint_broad_spawner,
-            twist_mux_node,
+            #twist_mux_node,
         ]
     )
