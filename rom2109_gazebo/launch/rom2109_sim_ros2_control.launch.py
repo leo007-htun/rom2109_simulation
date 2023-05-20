@@ -75,14 +75,7 @@ def generate_launch_description():
         arguments=["joint_broad"],
     )
 
-    twist_mux_params = os.path.join(gazebo_pkg, 'config', 'twist_mux.yaml')
-    twist_mux_node = Node(
-        package="twist_mux",
-        executable="twist_mux",
-        parameters=[twist_mux_params, {'use_sim_time': 'true'}],
-        remappings=[('/cmd_vel_out', '/diff_cont/cmd_vel_unstamped')]
-    )
-
+    
     joy_params = os.path.join(get_package_share_directory('rom_robotics_joy'), 'config', 'joystick.yaml')
 
     joy_node = Node(
@@ -109,6 +102,6 @@ def generate_launch_description():
             spawn_robot_node,
             #diff_drive_spawner,
             #joint_broad_spawner,
-            #twist_mux_node,
+            
         ]
     )
