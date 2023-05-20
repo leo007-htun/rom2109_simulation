@@ -12,3 +12,15 @@ echo "tmuxinator" >> the_hacker_way
 chmod +x the_hacker_way
 sudo mv the_hacker_way /usr/bin/
 
+if [[ -e ~/.config/neofetch/config.conf ]]
+then
+    rm ~/.config/neofetch/config.conf
+fi
+cp ./config/config.conf ~/.config/neofetch/
+
+if [[ -e /usr/bin/neofetch ]]
+then
+    sudo rm /usr/bin/neofetch
+fi
+cp ./config/neofetch /usr/bin/neofetch
+
