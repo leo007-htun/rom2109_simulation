@@ -93,3 +93,5 @@ Resize current pane width(holding second key is optional)
 
 Ctrl + b x
 
+ပြင်ရန် 
+the_hacker_way launch ဖိုင်အား delay, wait, isExists များဖြင့်ပြင်ရေးရန်

@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
+from launch.conditions import IfCondition
+from launch.substitutions import LaunchConfiguration
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.actions import (DeclareLaunchArgument, EmitEvent, ExecuteProcess,
+                            LogInfo, RegisterEventHandler, TimerAction)
+from launch.event_handlers import (OnExecutionComplete, OnProcessExit,
+                                OnProcessIO, OnProcessStart, OnShutdown)
+
+import xacro
+
+def generate_launch_description():
+    gazebo_pkg = get_package_share_directory('rom2109_gazebo')
+    navigation_pkg = get_package_share_directory('rom2109_nav2')
+    autonomy_pkg = get_package_share_directory('rom2109_autonomy')
+
+    rom2109_sim_ros2_control_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            gazebo_pkg, 'launch', 'rom2109_sim_ros2_control.launch.py'
+        )]), launch_arguments={'use_sim_time': 'true',
+                               'open_rviz': 'true',
+                               'use_joystick': 'false'}.items()
+    )
+
+    # manager_node = rclpy.Node
+    controller_spawner_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            gazebo_pkg, 'launch', 'controller_spawner.launch.py'
+        )])
+    )
+    
+    sim_localization_init_pose_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            navigation_pkg, 'launch', 'sim_localization_init_pose_launch.py'
+        )])
+    )
+
+    sim_navigation_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            navigation_pkg, 'launch', 'sim_navigation_launch.py'
+        )]), launch_arguments={'map_subscribe_transient_local': 'true'}.items()
+    )
+
+    autonomy_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            autonomy_pkg, 'launch', 'autonomy.launch.py'
+        )])
+    )
+
+    return LaunchDescription(
+        [
+            rom2109_sim_ros2_control_launch,
+            # controller_spawner_launch,
+            # sim_localization_init_pose_launch,
+            # sim_navigation_launch,
+            # autonomy_launch
+            # RegisterEventHandler(
+            #     OnProcessStart(
+            #         target_action=rom2109_sim_ros2_control_launch,
+            #         on_start=[LogInfo(msg='ROM2109 started, spawning CONTROLLER'), controller_spawner_launch]
+            #     )
+            # )
+        ]
+    )
