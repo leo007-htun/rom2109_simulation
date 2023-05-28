@@ -22,5 +22,5 @@ if [[ -e /usr/bin/neofetch ]]
 then
     sudo rm /usr/bin/neofetch
 fi
-cp ./config/neofetch /usr/bin/neofetch
-
+sudo cp ./config/neofetch /usr/bin/neofetch
+sudo /usr/bin/neofetch
