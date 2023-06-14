@@ -1,4 +1,4 @@
-### rom2109_gazebo
+### rom2109_description
 
 #### Simulation  ပြုလုပ်ရန်
 ပုံမှန်အားဖြင့် gazebo ထဲသို့ spawn လုပ်ရာတွင် topic, database, file နည်းလမ်းများဖြင့် လုပ်နိုင်သော်လည်း topic နည်းလမ်းသည်  robot_state_pubisher  မှ လာတာမို့လို့ urdf, xacro, sdf တွေမှာပြသနာရှိနိုင်ပါတယ်။ ဒါကြောင့်  database, file  နည်းလမ်းများကို သုံးထားပါတယ်။
