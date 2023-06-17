@@ -74,32 +74,23 @@ def generate_launch_description():
         executable="spawner",
         arguments=["joint_broad"],
     )
-
     
-    joy_params = os.path.join(get_package_share_directory('rom_robotics_joy'), 'config', 'joystick.yaml')
-
-    joy_node = Node(
-        package='joy',
-        executable='joy_node',
-        parameters=[joy_params,{'use_sim_time': 'true'}],
-    )
-    teleop_node = Node(
-        package="teleop_twist_joy",
-        executable='teleop_node',
-        name='teleop_node',
-        parameters=[joy_params,{'use_sim_time': 'true'}],
-        remappings=[('/cmd_vel', '/cmd_vel_joy')]
+    joystick_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(joy_pkg, 'launch', 'joystick.launch.py')]),
+        launch_arguments={'use_sim_time': 'true'}.items(),
+        #condition=IfCondition('use_joystick')
     )
 
     return LaunchDescription(
         [
             DeclareLaunchArgument('open_rviz', default_value='true', description='Open RViz.'),
-            DeclareLaunchArgument('use_joystick', default_value='false', description='JoyStick.'),
+            DeclareLaunchArgument('use_joystick', default_value='true', description='JoyStick.'),
             DeclareLaunchArgument('use_sim_time', default_value='true', description='Sim Time'),
             bot,
             gazebo_launch,
             rviz_node,
             spawn_robot_node,
+            joystick_launch,
             #diff_drive_spawner,
             #joint_broad_spawner,
             
