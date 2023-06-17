@@ -63,16 +63,28 @@ def generate_launch_description():
         output='screen'
     )
 
-    diff_drive_spawner = Node(
+    diff_drive_controller = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["diff_cont"],
     )
+    delayed_diff_drive_controller = RegisterEventHandler(
+        event_handler=OnProcessStart(
+            target_action=spawn_robot_node,
+            on_start=[diff_drive_controller],
+        )
+    )
 
-    joint_broad_spawner = Node(
+    joint_broadcaster = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["joint_broad"],
+    )
+    delayed_joint_broadcaster = RegisterEventHandler(
+        event_handler=OnProcessStart(
+            target_action=spawn_robot_node,
+            on_start=[joint_broadcaster],
+        )
     )
     
     joystick_launch = IncludeLaunchDescription(
@@ -91,8 +103,8 @@ def generate_launch_description():
             rviz_node,
             spawn_robot_node,
             joystick_launch,
-            #diff_drive_spawner,
-            #joint_broad_spawner,
+            delayed_diff_drive_controller,
+            delayed_joint_broadcaster,
             
         ]
     )
